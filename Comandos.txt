@@ -1,0 +1,5 @@
+--- Instalar isolador virtual
+sudo pip install virtualenv
+
+--- Cria o isolamento
+virtualenv venv -p /usr/bin/python3
