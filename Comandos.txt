@@ -3,3 +3,9 @@ sudo pip install virtualenv
 
 --- Cria o isolamento
 virtualenv venv -p /usr/bin/python3
+
+--- Django
+https://www.djangoproject.com/download/
+pip install Django==3.1
+django-admin.py startproject simplemooc
+python manage.py runserver
