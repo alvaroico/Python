@@ -9,52 +9,41 @@ alunoCodigo = []
 alunoAltura = []
 alunoPeso = []
 codigo = 1
-maisBaixo = 0
-maisAlto = 0
-maisMagro = 0
-maisGordo = 0
 indice = 0
+maisAlto = 0
+maisBaixo = 0
+maisGordo = 0
+maisMagro = 0
 
-
+def ordenar(listagem, maior, menor):
+    if indice == 0:
+        maior = menor = listagem[indice]
+    else:
+        if listagem[indice] > maior:
+            maior = listagem[indice]
+        if listagem[indice] < menor:
+            menor = listagem[indice]
+    return (maior, menor)
 while codigo > 0:
     codigo = int(input("Digite seu Código ou 0 para finalizar: "))
     if codigo > 1:
         alunoCodigo.append(codigo)
         alunoAltura.append(int(input("Digite sua altura: ")))
-        if indice == 0:
-            maisAlto = maisBaixo = alunoAltura[indice]
-        else:
-            if alunoAltura[indice] > maisAlto:
-                maisAlto = alunoAltura[indice]
-            if alunoAltura[indice] < maisBaixo:
-                maisBaixo = alunoAltura[indice]
+        maisAlto, maisBaixo = ordenar(alunoAltura, maisAlto, maisBaixo)
         alunoPeso.append(int(input("Digite seu Peso: ")))
-        if indice == 0:
-            maisMagro = maisGordo = alunoPeso[indice]
-        else:
-            if alunoPeso[indice] > maisGordo:
-                maisGordo = alunoPeso[indice]
-            if alunoPeso[indice] < maisMagro:
-                maisMagro = alunoPeso[indice]
+        maisGordo, maisMagro = ordenar(alunoPeso, maisGordo, maisMagro)
         indice += 1
-
-def codigoAlunoBusca(listagem, oquebuscar,alunoCodigo):
-  for i, v in enumerate(listagem):
-    if v == oquebuscar:
-      print(f'Código do mais baixo {alunoCodigo[i]}')
-
+def codigoAlunoBusca(listagem, oquebuscar, alunoCodigo):
+    for i, v in enumerate(listagem):
+        if v == oquebuscar:
+            print(f'Código do mais baixo {alunoCodigo[i]}')
 print(f'O mais Baixo, {maisBaixo}', end=' ')
-codigoAlunoBusca(alunoAltura,maisBaixo,alunoCodigo)
-
-print(f'O mais Baixo, {maisAlto}', end=' ')
-codigoAlunoBusca(alunoAltura,maisAlto,alunoCodigo)
-
-print(f'O mais Baixo, {maisMagro}', end=' ')
-codigoAlunoBusca(alunoPeso,maisMagro,alunoCodigo)
-
-print(f'O mais Baixo, {maisGordo}', end=' ')
-codigoAlunoBusca(alunoPeso,maisGordo,alunoCodigo)
-
+codigoAlunoBusca(alunoAltura, maisBaixo, alunoCodigo)
+print(f'O mais Alto, {maisAlto}', end=' ')
+codigoAlunoBusca(alunoAltura, maisAlto, alunoCodigo)
+print(f'O mais Magro, {maisMagro}', end=' ')
+codigoAlunoBusca(alunoPeso, maisMagro, alunoCodigo)
+print(f'O mais Gordo, {maisGordo}', end=' ')
+codigoAlunoBusca(alunoPeso, maisGordo, alunoCodigo)
 print(f'Media da altura {sum(alunoAltura)/len(alunoAltura)}')
 print(f'Media da altura {sum(alunoPeso)/len(alunoPeso)}')
-
