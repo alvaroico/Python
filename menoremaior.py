@@ -38,29 +38,23 @@ while codigo > 0:
                 maisMagro = alunoPeso[indice]
         indice += 1
 
+def codigoAlunoBusca(listagem, oquebuscar,alunoCodigo):
+  for i, v in enumerate(listagem):
+    if v == oquebuscar:
+      print(f'Código do mais baixo {alunoCodigo[i]}')
+
 print(f'O mais Baixo, {maisBaixo}', end=' ')
-for i, v in enumerate(alunoAltura):
-    if v == maisBaixo:
-        print(f'Código do mais baixo {alunoCodigo[i]}')
+codigoAlunoBusca(alunoAltura,maisBaixo,alunoCodigo)
 
 print(f'O mais Baixo, {maisAlto}', end=' ')
-for i, v in enumerate(alunoAltura):
-    if v == maisAlto:
-        print(f'Código do mais baixo {alunoCodigo[i]}')
+codigoAlunoBusca(alunoAltura,maisAlto,alunoCodigo)
+
 print(f'O mais Baixo, {maisMagro}', end=' ')
-for i, v in enumerate(alunoPeso):
-    if v == maisMagro:
-        print(f'Código do mais baixo {alunoCodigo[i]}')
+codigoAlunoBusca(alunoPeso,maisMagro,alunoCodigo)
+
 print(f'O mais Baixo, {maisGordo}', end=' ')
-for i, v in enumerate(alunoPeso):
-    if v == maisGordo:
-        print(f'Código do mais baixo {alunoCodigo[i]}')
+codigoAlunoBusca(alunoPeso,maisGordo,alunoCodigo)
 
-
-mediaAltura = sum(alunoAltura)/len(alunoAltura)
-mediaPeso = sum(alunoPeso)/len(alunoPeso)
-
-
-print(f'Media da altura {mediaAltura}')
-print(f'Media da altura {mediaPeso}')
+print(f'Media da altura {sum(alunoAltura)/len(alunoAltura)}')
+print(f'Media da altura {sum(alunoPeso)/len(alunoPeso)}')
 
